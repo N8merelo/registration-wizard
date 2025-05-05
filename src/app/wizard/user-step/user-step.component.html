@@ -1,0 +1,47 @@
+<h3>User Information</h3>
+
+<form [formGroup]="form" class="step-form">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="firstName" required />
+    <mat-error *ngIf="form.get('firstName')?.invalid">Required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="name" required />
+    <mat-error *ngIf="form.get('name')?.invalid">Required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username" required />
+    <mat-error *ngIf="form.get('username')?.invalid">Required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" required />
+    <mat-error *ngIf="form.get('email')?.invalid">Must be a valid email</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" required />
+    <mat-error *ngIf="form.get('password')?.invalid">Required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Repeat Password</mat-label>
+    <input matInput type="password" formControlName="passwordRepeat" required />
+    <mat-error *ngIf="!passwordsMatch()">Passwords must match</mat-error>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="acceptedTerms" required>
+    I accept the Terms of Service
+  </mat-checkbox>
+
+  <mat-checkbox formControlName="acceptedPrivacyPolicy" required>
+    I accept the Privacy Policy
+  </mat-checkbox>
+</form>

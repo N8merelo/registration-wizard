@@ -1,0 +1,19 @@
+<h2 style="color: green;">✔️ CompanyStepComponent is rendering</h2>
+
+<form [formGroup]="form" class="step-form">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Company Name</mat-label>
+    <input matInput formControlName="companyName" required>
+    <mat-error *ngIf="form.get('companyName')?.invalid">Required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Industry</mat-label>
+    <mat-select formControlName="industryId" required>
+      <mat-option *ngFor="let industry of industries" [value]="industry.industryId">
+        {{ industry.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('industryId')?.invalid">Select one</mat-error>
+  </mat-form-field>
+</form>

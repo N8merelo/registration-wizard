@@ -1,0 +1,17 @@
+<mat-horizontal-stepper [linear]="true" [formGroup]="wizardForm">
+    <mat-step [stepControl]="companyStepForm">
+      <app-company-step [form]="companyStepForm"></app-company-step>
+      <div>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+  
+    <mat-step [stepControl]="userStepForm">
+      <app-user-step [form]="userStepForm"></app-user-step>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+  
